@@ -52,4 +52,23 @@ def main():
     BEEP3 = pygame.mixer,Sound('beep3.ogg')
     BEEP4 = pygame.mixer,Sound('beep4.ogg')
     
+    # Initialize some variables for a new game
+    pattern = [] # stores the pattern of colors
+    currentstep = 0 #the color the player must push next
+    lastClickTime = 0 #timestamp of the player's last button push
+    score = 0   
+    #when False the pattern is playing. when True waiting for player to click a colored button:
+    waitingForInput = False
+    
+    while True:#main game loop
+        clickedButton = None
+        DISPLAYSURF.fill(bgColor)
+        drawButtons()
+        
+        scoreSurf = BASICFONT.render('Score:' + str(score),1, WHITE)
+        scoreRect = scoreSurf.get_rect()
+        scoreRect.topleft = (WINDOWWIDTH - 100, 10)
+        DISPLAYSURF.blit(scoreSurf, scoreRect)
+        
+        DISPLAYSURF.blit(infoSurf, infoRect)
     
