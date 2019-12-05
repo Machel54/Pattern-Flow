@@ -32,3 +32,24 @@ BLUERECT = pygame.Rect(XMARGIN + BUTTONSIZE + BUTTONGAPSIZE,YMARGIN,BUTTONSIZE,B
 REDRECT = pygame.Rect(XMARGIN, YMARGIN + BUTTONSIZE + BUTTONGAPSIZE,BUTTONSIZE,BUTTONSIZE)
 GREENRECT = pygame.Rect(XMARGIN + BUTTONSIZE + BUTTONGAPSIZE, YMARGIN + BUTTONSIZE + BUTTONGAPSIZE,BUTTONSIZE,BUTTONSIZE)
 
+def main():
+    global FPSCLOCK,DISPLAYSURF,BASICFONT,BEEP1,BEEP2,BEEP3,BEEP4
+    
+    pygame.init()
+    FPSCLOCK = pygame.time.Clock()
+    DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
+    pygame.display.set_caption('Flow')
+    
+    BASICFONT = pygame.font.Font('Bubbler One', 16)
+    
+    infoSurf = BASICFONT.render('Match the pattern by clicking on the button or using Q,W,A,S keys.',1,DRAKGREY)
+    infoRect = infoSurf.get_rect()
+    infoRect.topleft = (10, WINDOWHEIGHT - 25)
+    
+    #load sound files
+    BEEP1 = pygame.mixer,Sound('beep1.ogg')
+    BEEP2 = pygame.mixer,Sound('beep2.ogg')
+    BEEP3 = pygame.mixer,Sound('beep3.ogg')
+    BEEP4 = pygame.mixer,Sound('beep4.ogg')
+    
+    
