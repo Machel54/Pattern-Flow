@@ -115,6 +115,45 @@ def main():
                 score = 0 
                 pygame.time.wait(1000)
                 changeBackgroundAnimation()
+                
         pygame.display.update()
         FPSCLOCK.tick(FPS)
-                
+
+def terminate():
+    pygame.quit()
+    sys.exit()
+    
+def checkForQuit():
+    #get all the QUIT events
+    for event in pygame.event.get(QUIT):
+        #terminate any QUIT events if present
+        terminate()
+    for event in pygame.event.get(KEYUP):
+        if event.key == K_ESCAPE:
+            terminate()
+        pygame.event.post(event)
+        
+def flashButtonAnimation(color, animationSpeed=50):
+    if color == YELLOW:
+        sound = BEEP1
+        flashColor = BRIGHTYELLOW
+        rectangle = YELLOWRECT
+    elif color == BLUE:
+        sound = BEEP2
+        flashColor = BRIGHTBLUE
+        rectangle = BLUERECT
+    elif color == RED:
+        sound = BEEP3
+        flashColor = BRIGHTRED
+        rectangle = REDRECT
+    elif color == GREEN:
+        sound = BEEP4
+        flashColor = BRIGHTGREEN
+        rectangle = GREENRECT
+        
+    originSurf = DISPLAYSURF.copy()
+    flashSurf = pygame.Surface((BUTTONSIZE,BUTTONSIZE))
+    flashSurf = flashSurf.convert_alpha()
+    r, g, b = flashColor
+    sound.play()
+    
