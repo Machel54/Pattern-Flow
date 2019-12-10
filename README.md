@@ -12,44 +12,56 @@ Requirements
 
 You need to have the following system packages installed:
 
-* Python >= 2.6
+* Python >= 3.6
+* pygame >= 1.9.6
 
 
 Getting Started
 ---------------
 
-To set up your local environment you should create a virtualenv and
-install everything into it. ::
+##### 1. Clone the repository
+Clone the the repository by running 
 
-    $ mkvirtualenv tictactoe
+   ```bash
+   git clone https://github.com/Machel54/Pattern-Flow.git
+   ```
+ or download a zip file of the project from github
+ 
 
-Pip install this repo, either from a local copy, ::
+##### 2. Create a virtual environment
+ Install `Virtualenv` 
 
-    $ pip install -e ultimate_tictactoe
+   ```prettier
+   pip install virtualenv
+   ```
 
-or from github, ::
+To create a virtual environment named `virtual`, run
 
-    $ pip install git+https://github.com/jbradberry/ultimate_tictactoe#egg=ut3
+   ```prettier
+   virtualenv virtual
+   ```
+To activate the virtual environment we just created, run
 
-and then install the requirements ::
+   ```bash
+   source virtual/bin/activate
+   ```
+##### 3. Install pygame
+ Install `pygame` 
 
-    $ pip install -r requirements_server.txt
-    $ pip install -r requirements_player.txt
+   ```prettier
+   pip install pygame
+   ```
+## Technologies Used
+* Python
+* pygame
 
-To run the server with Ultimate Tic Tac Toe ::
+## Bugs
+There are no know bugs at the moment
 
-    $ board-serve.py t3
+## License
+[![License](https://img.shields.io/packagist/l/loopline-systems/closeio-api-wrapper.svg)](http://opensource.org/licenses/MIT)
+>MIT license &copy;  2019 Machel Nyanumba
+## Contacts
+Reach me on:
+>Email:  machelnyanumba14@gmail.com
 
-Optionally, the server ip address and port number can be added ::
-
-    $ board-serve.py t3 0.0.0.0
-    $ board-serve.py t3 0.0.0.0 8000
-
-To connect a client as a human player ::
-
-    $ board-play.py t3 human
-    $ board-play.py t3 human 192.168.1.1 8000   # with ip addr and port
-
-or with the provided AI player ::
-
-    $ board-play.py t3 t3.jrb_mcts
